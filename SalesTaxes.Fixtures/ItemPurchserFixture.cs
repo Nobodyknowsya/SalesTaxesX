@@ -35,7 +35,7 @@ namespace SalesTaxes.Fixtures
             var purchasedItem = itemPurchaser.PurchaseItem(book);
 
             //Assertion
-            Assert.AreEqual(book.Price,purchasedItem.Price);
+            Assert.AreEqual(book.Price,purchasedItem.FinalPrice);
             Assert.AreEqual(0,purchasedItem.SaleTax);
             Assert.AreEqual(book.Description,purchasedItem.Description);
         }
@@ -57,7 +57,7 @@ namespace SalesTaxes.Fixtures
             var purchasedItem = itemPurchaser.PurchaseItem(musicCd);
 
             //Assertion
-            Assert.AreEqual(16.49m, purchasedItem.Price);
+            Assert.AreEqual(16.49m, purchasedItem.FinalPrice);
             Assert.AreEqual(1.5m, purchasedItem.SaleTax);
         }
     }

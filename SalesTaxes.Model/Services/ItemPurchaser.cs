@@ -19,7 +19,7 @@ namespace SalesTaxes.Model.Services
             return new PurchasedItem()
             {
                 Description = item.Description,
-                Price = item.Price+taxes,
+                FinalPrice = item.Price+taxes,
                 SaleTax = taxes
             };
         }

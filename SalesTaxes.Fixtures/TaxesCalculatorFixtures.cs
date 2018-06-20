@@ -191,4 +191,18 @@ namespace SalesTaxes.Fixtures
             Assert.AreEqual(7.1m,result);
         }
     }
+
+    [TestFixture]
+    public class CashRegisterFixtures
+    {
+        [Test]
+        public void Checkout()
+        {
+            //Setup
+
+            //SUT Call
+
+            //Assertion
+        } 
+    }
 }
