@@ -3,16 +3,16 @@ using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Model.Services
 {
-    public class ItemPurchaser
+    public class BasketItemManager
     {
         private readonly ITaxesCalculator _taxesCalculator;
 
-        public ItemPurchaser(ITaxesCalculator taxesCalculator)
+        public BasketItemManager(ITaxesCalculator taxesCalculator)
         {
             _taxesCalculator = taxesCalculator;
         }
 
-        public PurchasedItem PurchaseItem(Item item)
+        public PurchasedItem AddToBasket(Item item)
         {
             var taxes = _taxesCalculator.CalculateItemTaxes(item);
 

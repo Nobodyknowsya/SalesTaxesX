@@ -49,8 +49,6 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(16.49m, result);
-            //Assert.AreEqual(16.49m, result.TotalPrice);
-            //Assert.AreEqual(1.50m, result.ItemTaxes);
         }
 
         [Test]
@@ -190,19 +188,5 @@ namespace SalesTaxes.Fixtures
             //Assertion
             Assert.AreEqual(7.1m,result);
         }
-    }
-
-    [TestFixture]
-    public class CashRegisterFixtures
-    {
-        [Test]
-        public void Checkout()
-        {
-            //Setup
-
-            //SUT Call
-
-            //Assertion
-        } 
     }
 }

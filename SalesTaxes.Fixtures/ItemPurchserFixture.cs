@@ -10,18 +10,18 @@ namespace SalesTaxes.Fixtures
     [TestFixture]
     public class ItemPurchserFixture
     {
-        private ItemPurchaser itemPurchaser;
+        private BasketItemManager _basketItemManager;
         private Mock<ITaxesCalculator> taxCalculatorMock;
         
         [SetUp]
         public void Setup()
         {
             taxCalculatorMock=new Mock<ITaxesCalculator>();
-            itemPurchaser = new ItemPurchaser(taxCalculatorMock.Object);
+            _basketItemManager = new BasketItemManager(taxCalculatorMock.Object);
         }
 
         [Test]
-        public void PurchaseItem_WithNoTaxes_PriceIsEqualThanItemPrice()
+        public void AddToBasket_WithNoTaxes_PriceIsEqualThanItemPrice()
         {
             //Setup
             var book = new Item()
@@ -32,7 +32,7 @@ namespace SalesTaxes.Fixtures
             };
 
             //SUT Call
-            var purchasedItem = itemPurchaser.PurchaseItem(book);
+            var purchasedItem = _basketItemManager.AddToBasket(book);
 
             //Assertion
             Assert.AreEqual(book.Price,purchasedItem.FinalPrice);
@@ -41,7 +41,7 @@ namespace SalesTaxes.Fixtures
         }
 
         [Test]
-        public void PurchaseItem_WithTaxes_FinalPriceIsPricePlusTaxes()
+        public void AddToBasket_WithTaxes_FinalPriceIsPricePlusTaxes()
         {
             //Setup
             var musicCd = new Item()
@@ -54,7 +54,7 @@ namespace SalesTaxes.Fixtures
             taxCalculatorMock.Setup(s => s.CalculateItemTaxes(It.IsAny<Item>())).Returns(() => 1.5m);
             
             //SUT Call
-            var purchasedItem = itemPurchaser.PurchaseItem(musicCd);
+            var purchasedItem = _basketItemManager.AddToBasket(musicCd);
 
             //Assertion
             Assert.AreEqual(16.49m, purchasedItem.FinalPrice);

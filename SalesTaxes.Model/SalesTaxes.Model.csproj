@@ -43,9 +43,12 @@
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\ItemSale.cs" />
     <Compile Include="Entities\Receipt.cs" />
+    <Compile Include="Entities\ReceiptDetail.cs" />
     <Compile Include="Services\Contracts\ITaxesCalculator.cs" />
-    <Compile Include="Services\ItemPurchaser.cs" />
+    <Compile Include="Services\BasketItemManager.cs" />
     <Compile Include="Entities\PurchasedItem.cs" />
+    <Compile Include="Services\Contracts\IReceiptBuilder.cs" />
+    <Compile Include="Services\Contracts\IBasketItemManager.cs" />
     <Compile Include="Services\ReceiptBuilder.cs" />
     <Compile Include="Services\TaxesCalculator.cs" />
     <Compile Include="Entities\TypeOfItem.cs" />

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using SalesTaxes.Model.Entities;
+using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Model.Services
 {
-    public class ReceiptBuilder
+    public class ReceiptBuilder: IReceiptBuilder
     {
         public Receipt CreateReceipt(PurchasedItem[] purchasedItems)
         {
