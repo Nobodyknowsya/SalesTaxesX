@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemPurchserFixture.cs" />
+    <Compile Include="ReceiptBuilderFixtures.cs" />
     <Compile Include="TaxesCalculatorFixtures.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
