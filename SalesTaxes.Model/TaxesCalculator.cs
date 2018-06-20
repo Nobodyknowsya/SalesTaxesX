@@ -1,6 +1,7 @@
 ﻿using System;
+using SalesTaxes.Model.Entities;
 
-namespace SalesTaxes.Model.Entities
+namespace SalesTaxes.Model
 {
     public class TaxesCalculator
     {
@@ -13,9 +14,18 @@ namespace SalesTaxes.Model.Entities
 
         public decimal CalculateItemTaxes(Item item)
         {
-            return IsTaxFree(item)
-                ? 0
-                :Math.Round(item.Price * 0.1m * 20) / 20;
+            decimal rate = 0;
+            if (item.IsImported)
+            {
+                rate += 0.05m;
+            }
+
+            if (!IsTaxFree(item))
+            {
+                rate += 0.1m;
+            }
+            
+            return Math.Round(item.Price * rate * 20) / 20;
         }
 
         private bool IsTaxFree(Item item)

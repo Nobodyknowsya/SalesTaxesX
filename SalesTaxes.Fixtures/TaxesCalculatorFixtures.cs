@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using SalesTaxes.Model;
 using SalesTaxes.Model.Entities;
 
 namespace SalesTaxes.Fixtures
@@ -151,6 +152,42 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(0,result);
+        }
+
+        [Test]
+        public void CalculateItemTaxes_ImportedChocolate_ImportedItemTaxCalculated()
+        {
+            //Setup
+            var importedChocolates = new Item()
+            {
+                Price = 10m,
+                TypeOfItem = TypeOfItem.Food,
+                IsImported = true
+            };
+
+            //SUT Call
+            var result = taxesCalculator.CalculateItemTaxes(importedChocolates);
+
+            //Assertion
+            Assert.AreEqual(0.5m,result);
+        }
+
+        [Test]
+        public void CalculateItemTaxes_ImportedPerfume_ImportedItemAndNoTaxFreeCalculated()
+        {
+            //Setup
+            var importedPerfume = new Item()
+            {
+                Price = 47.5m,
+                TypeOfItem = TypeOfItem.Other,
+                IsImported = true
+            };
+
+            //SUT Call
+            var result = taxesCalculator.CalculateItemTaxes(importedPerfume);
+
+            //Assertion
+            Assert.AreEqual(7.1m,result);
         }
     }
 

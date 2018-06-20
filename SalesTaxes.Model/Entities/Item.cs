@@ -4,5 +4,6 @@ namespace SalesTaxes.Model.Entities
     {
         public TypeOfItem TypeOfItem { get; set; }
         public decimal Price { get; set; }
+        public bool IsImported { get; set; }
     }
 }

@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\ItemSale.cs" />
-    <Compile Include="Entities\TaxesCalculator.cs" />
+    <Compile Include="TaxesCalculator.cs" />
     <Compile Include="Entities\TypeOfItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
