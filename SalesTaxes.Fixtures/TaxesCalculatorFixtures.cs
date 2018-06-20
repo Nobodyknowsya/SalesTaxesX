@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using SalesTaxes.Model;
 using SalesTaxes.Model.Entities;
+using SalesTaxes.Model.Services;
 
 namespace SalesTaxes.Fixtures
 {
@@ -190,6 +191,4 @@ namespace SalesTaxes.Fixtures
             Assert.AreEqual(7.1m,result);
         }
     }
-
-
 }

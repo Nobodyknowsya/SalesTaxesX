@@ -1,7 +1,7 @@
 ﻿using System;
 using SalesTaxes.Model.Entities;
 
-namespace SalesTaxes.Model
+namespace SalesTaxes.Model.Services
 {
     public class TaxesCalculator
     {
