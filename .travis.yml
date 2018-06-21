@@ -4,5 +4,5 @@ install:
   - nuget restore SalesTaxes.sln
   - nuget install NUnit.Runners -Version 3.8.0 -OutputDirectory testrunner
 script:
-  - msbuild /p:Configuration=Release SalesTaxes.sln
+  - msbuild /p:Configuration=Debug SalesTaxes.sln
   - mono ./testrunner/NUnit.ConsoleRunner.3.8.0/tools/nunit-console.exe ./SalesTaxes.Fixtures/bin/Release/SalesTaxes.Fixtures.dll
