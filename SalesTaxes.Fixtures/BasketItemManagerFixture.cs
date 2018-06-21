@@ -59,6 +59,7 @@ namespace SalesTaxes.Fixtures
             //Assertion
             Assert.AreEqual(16.49m, purchasedItem.FinalPrice);
             Assert.AreEqual(1.5m, purchasedItem.SaleTax);
+            taxCalculatorMock.Verify(s => s.CalculateItemTaxes(It.IsAny<Item>()),Times.Exactly(1));
         }
     }
 }
