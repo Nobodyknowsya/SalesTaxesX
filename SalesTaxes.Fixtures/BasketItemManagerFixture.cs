@@ -8,7 +8,7 @@ using SalesTaxes.Model.Services.Contracts;
 namespace SalesTaxes.Fixtures
 {
     [TestFixture]
-    public class ItemPurchserFixture
+    public class BasketItemManagerFixture
     {
         private BasketItemManager _basketItemManager;
         private Mock<ITaxesCalculator> taxCalculatorMock;

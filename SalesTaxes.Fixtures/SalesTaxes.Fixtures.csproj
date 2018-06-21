@@ -58,7 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemPurchserFixture.cs" />
+    <Compile Include="BasketItemManagerFixture.cs" />
     <Compile Include="ReceiptBuilderFixtures.cs" />
     <Compile Include="ShoppingBasketServiceFixtures.cs" />
     <Compile Include="TaxesCalculatorFixtures.cs" />
