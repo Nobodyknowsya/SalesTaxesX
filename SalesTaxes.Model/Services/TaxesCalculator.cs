@@ -15,7 +15,7 @@ namespace SalesTaxes.Model.Services
         public decimal CalculateItemTaxes(Item item)
         {
             decimal rate = 0;
-            if (item.IsImported)
+            if (item.IsImported)//Troppo semplice per usare un decorator?
             {
                 rate += 0.05m;
             }
