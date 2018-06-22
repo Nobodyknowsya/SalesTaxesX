@@ -1,10 +1,22 @@
 ﻿using System;
+using SalesTaxes;
 using SalesTaxes.Model.Entities;
+using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Model.Services
 {
     public class TaxesCalculator
     {
+        private readonly ITaxRateRetriever _taxRateRetriever;
+
+        public TaxesCalculator(ITaxRateRetriever taxRateRetriever)
+        {
+            if (taxRateRetriever == null) throw new ArgumentNullException(nameof(taxRateRetriever));
+            _taxRateRetriever = taxRateRetriever;
+        }
+
+        public ITaxRateRetriever TaxRateRetriever { get; set; }
+
         public decimal CalculateTotalPrice(Item item)
         {
             return IsTaxFree(item)
@@ -15,14 +27,14 @@ namespace SalesTaxes.Model.Services
         public decimal CalculateItemTaxes(Item item)
         {
             decimal rate = 0;
-            if (item.IsImported)//Troppo semplice per usare un decorator?
+            if (item.IsImported)//decorator?
             {
-                rate += 0.05m;
+                rate += _taxRateRetriever.GetImportTaxRate();
             }
 
             if (!IsTaxFree(item))
             {
-                rate += 0.1m;
+                rate += _taxRateRetriever.GetTaxRate();
             }
             
             return Math.Round(item.Price * rate * 20) / 20;

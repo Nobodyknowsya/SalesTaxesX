@@ -67,6 +67,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SalesTaxes.Data\SalesTaxes.Data.csproj">
+      <Project>{87fb654e-97f5-4764-9138-d823bb30f07c}</Project>
+      <Name>SalesTaxes.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalesTaxes.Model\SalesTaxes.Model.csproj">
       <Project>{DAD75A88-1061-45FC-9C9B-2B87C459C93F}</Project>
       <Name>SalesTaxes.Model</Name>

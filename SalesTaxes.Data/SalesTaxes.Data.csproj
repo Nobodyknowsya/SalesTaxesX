@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DAD75A88-1061-45FC-9C9B-2B87C459C93F}</ProjectGuid>
+    <ProjectGuid>{87FB654E-97F5-4764-9138-D823BB30F07C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SalesTaxes.Model</RootNamespace>
-    <AssemblyName>SalesTaxes.Model</AssemblyName>
+    <RootNamespace>SalesTaxes.Data</RootNamespace>
+    <AssemblyName>SalesTaxes.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,20 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Item.cs" />
-    <Compile Include="Entities\ItemSale.cs" />
-    <Compile Include="Entities\Receipt.cs" />
-    <Compile Include="Entities\ReceiptDetail.cs" />
-    <Compile Include="Services\Contracts\ITaxesCalculator.cs" />
-    <Compile Include="Services\BasketItemManager.cs" />
-    <Compile Include="Entities\PurchasedItem.cs" />
-    <Compile Include="Services\Contracts\IReceiptBuilder.cs" />
-    <Compile Include="Services\Contracts\IBasketItemManager.cs" />
-    <Compile Include="Services\Contracts\ITaxRateRetriever.cs" />
-    <Compile Include="Services\ReceiptBuilder.cs" />
-    <Compile Include="Services\ShoppingBasketService.cs" />
-    <Compile Include="Services\TaxesCalculator.cs" />
-    <Compile Include="Entities\TypeOfItem.cs" />
+    <Compile Include="TaxRateRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

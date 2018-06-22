@@ -1,8 +1,10 @@
 ﻿using System;
+using Moq;
 using NUnit.Framework;
 using SalesTaxes.Model;
 using SalesTaxes.Model.Entities;
 using SalesTaxes.Model.Services;
+using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Fixtures
 {
@@ -10,11 +12,30 @@ namespace SalesTaxes.Fixtures
     public class TaxesCalculatorFixtures
     {
         private TaxesCalculator taxesCalculator;
+        private Mock<ITaxRateRetriever> taxRateRetriever;
 
         [SetUp]
         public void SetUp()
         {
-            taxesCalculator = new TaxesCalculator();
+            taxRateRetriever = new Mock<ITaxRateRetriever>();
+            taxRateRetriever.Setup(s => s.GetTaxRate()).Returns(0.1m);
+            taxRateRetriever.Setup(s => s.GetImportTaxRate()).Returns(0.05m);
+            taxesCalculator = new TaxesCalculator(taxRateRetriever.Object);
+        }
+
+        [Test]
+        public void Ctor_TaxRateRetrieverIsNull_ThrowsException()
+        {
+            try
+            {
+                taxesCalculator = new TaxesCalculator(null);
+                Assert.Fail();
+            }
+            catch (ArgumentNullException e)
+            {
+                Assert.AreEqual("Il valore non può essere null.\r\nNome parametro: taxRateRetriever", e.Message);
+            }
+            
         }
 
         [Test]
@@ -100,6 +121,7 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(1.50m, result);
+            taxRateRetriever.Verify(t=>t.GetTaxRate(),Times.Once);
         }
 
         [Test]
@@ -117,6 +139,8 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(0,result);
+            taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Never);
+
         }
 
         [Test]
@@ -134,6 +158,8 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(0,result);
+            taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Never);
+
         }
 
         [Test]
@@ -151,6 +177,8 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(0,result);
+            taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Never);
+
         }
 
         [Test]
@@ -169,6 +197,9 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(0.5m,result);
+            taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Never);
+            taxRateRetriever.Verify(t => t.GetImportTaxRate(), Times.Once);
+
         }
 
         [Test]
@@ -187,6 +218,8 @@ namespace SalesTaxes.Fixtures
 
             //Assertion
             Assert.AreEqual(7.1m,result);
+            taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Once);
+            taxRateRetriever.Verify(t => t.GetImportTaxRate(), Times.Once);
         }
     }
 }
