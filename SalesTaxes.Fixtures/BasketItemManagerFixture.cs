@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using System;
+using Moq;
 using NUnit.Framework;
 using SalesTaxes.Model;
 using SalesTaxes.Model.Entities;
@@ -18,6 +19,20 @@ namespace SalesTaxes.Fixtures
         {
             taxCalculatorMock=new Mock<ITaxesCalculator>();
             _basketItemManager = new BasketItemManager(taxCalculatorMock.Object);
+        }
+
+        [Test]
+        public void Ctor_TaxCalculatorIsNull_ThrowsException()
+        {
+            try
+            {
+                new BasketItemManager(null);
+                Assert.Fail();
+            }
+            catch (ArgumentNullException e)
+            {
+                
+            }
         }
 
         [Test]

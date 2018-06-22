@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasketItemManagerFixture.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="ReceiptBuilderFixtures.cs" />
     <Compile Include="ShoppingBasketServiceFixtures.cs" />
     <Compile Include="TaxesCalculatorFixtures.cs" />

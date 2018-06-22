@@ -5,7 +5,7 @@ using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Model.Services
 {
-    public class TaxesCalculator
+    public class TaxesCalculator : ITaxesCalculator
     {
         private readonly ITaxRateRetriever _taxRateRetriever;
 
@@ -36,8 +36,8 @@ namespace SalesTaxes.Model.Services
             {
                 rate += _taxRateRetriever.GetTaxRate();
             }
-            
-            return Math.Round(item.Price * rate * 20) / 20;
+
+            return Math.Ceiling(item.Price * rate * 20) / 20;
         }
 
         private bool IsTaxFree(Item item)

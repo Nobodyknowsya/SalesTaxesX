@@ -33,7 +33,6 @@ namespace SalesTaxes.Fixtures
             }
             catch (ArgumentNullException e)
             {
-                Assert.AreEqual("Il valore non può essere null.\r\nNome parametro: taxRateRetriever", e.Message);
             }
             
         }
@@ -217,7 +216,7 @@ namespace SalesTaxes.Fixtures
             var result = taxesCalculator.CalculateItemTaxes(importedPerfume);
 
             //Assertion
-            Assert.AreEqual(7.1m,result);
+            Assert.AreEqual(7.15m,result);
             taxRateRetriever.Verify(t => t.GetTaxRate(), Times.Once);
             taxRateRetriever.Verify(t => t.GetImportTaxRate(), Times.Once);
         }

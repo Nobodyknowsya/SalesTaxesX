@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Moq;
 using NUnit.Framework;
 using SalesTaxes.Model.Entities;
@@ -18,6 +19,34 @@ namespace SalesTaxes.Fixtures
         {
             receiptBuilderMock = new Mock<IReceiptBuilder>();
             basketItemManager = new Mock<IBasketItemManager>();
+        }
+
+        [Test]
+        public void Ctor_ReceiptBuilderIsNull_ThrowsException()
+        {
+            try
+            {
+                new ShoppingBasketService(null, basketItemManager.Object);
+                Assert.Fail();
+            }
+            catch (ArgumentNullException e)
+            {
+                
+            }
+        }
+
+        [Test]
+        public void Ctor_BasketItemManager_ThrowsException()
+        {
+            try
+            {
+                new ShoppingBasketService(receiptBuilderMock.Object, null);
+                Assert.Fail();
+            }
+            catch (ArgumentNullException e)
+            {
+
+            }
         }
 
         [Test]

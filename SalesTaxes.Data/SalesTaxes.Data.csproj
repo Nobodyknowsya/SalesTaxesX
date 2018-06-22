@@ -43,5 +43,11 @@
     <Compile Include="TaxRateRetriever.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SalesTaxes.Model\SalesTaxes.Model.csproj">
+      <Project>{dad75a88-1061-45fc-9c9b-2b87c459c93f}</Project>
+      <Name>SalesTaxes.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
