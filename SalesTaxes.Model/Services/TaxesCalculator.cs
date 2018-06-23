@@ -17,13 +17,6 @@ namespace SalesTaxes.Model.Services
 
         public ITaxRateRetriever TaxRateRetriever { get; set; }
 
-        public decimal CalculateTotalPrice(Item item)
-        {
-            return IsTaxFree(item)
-                ? item.Price
-                : item.Price + CalculateItemTaxes(item);
-        }
-
         public decimal CalculateItemTaxes(Item item)
         {
             decimal rate = 0;
