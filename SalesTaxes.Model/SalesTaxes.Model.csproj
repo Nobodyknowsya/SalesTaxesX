@@ -50,6 +50,7 @@
     <Compile Include="Services\Contracts\IReceiptBuilder.cs" />
     <Compile Include="Services\Contracts\IBasketItemManager.cs" />
     <Compile Include="Services\Contracts\ITaxRateRetriever.cs" />
+    <Compile Include="Services\Contracts\IShoppingBasketService.cs" />
     <Compile Include="Services\ReceiptBuilder.cs" />
     <Compile Include="Services\ShoppingBasketService.cs" />
     <Compile Include="Services\TaxesCalculator.cs" />

@@ -5,7 +5,7 @@ using SalesTaxes.Model.Services.Contracts;
 
 namespace SalesTaxes.Model.Services
 {
-    public class ShoppingBasketService
+    public class ShoppingBasketService:IShoppingBasketService
     {
         private readonly IReceiptBuilder _receiptBuilder;
         private readonly IBasketItemManager _basketItemManager;
